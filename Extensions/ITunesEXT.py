@@ -3,10 +3,10 @@ from sys import path
 def install():
     # Adds the extensions commands to the command file
     import consts
-    print("Installing HelloEXT")
+    print("Installing ItunesEXT")
     print(consts.COMMANDS_FILE)
     commandsFile = open(consts.COMMANDS_FILE, "a")
-    commandsFile.write("hello,HelloEXT\n")
+    commandsFile.write("itunes,ITunesEXT\n")
     commandsFile.close()
     return 
 
@@ -25,6 +25,8 @@ def listen(command):
     
     # Package output into an Olga Output Object
     output = None
-    if(command=="hello"):
-        output = makeOOO(text="Hello World")
+    if(command=="itunes"):
+        output = makeOOO(text="Open Itunes")
+        import subprocess
+        subprocess.Popen('C:\\Program Files\\iTunes\\itunes.exe') # This opens up the calculator
     return output

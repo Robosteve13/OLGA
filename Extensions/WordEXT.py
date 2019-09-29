@@ -3,10 +3,10 @@ from sys import path
 def install():
     # Adds the extensions commands to the command file
     import consts
-    print("Installing HelloEXT")
+    print("Installing WordEXT")
     print(consts.COMMANDS_FILE)
     commandsFile = open(consts.COMMANDS_FILE, "a")
-    commandsFile.write("hello,HelloEXT\n")
+    commandsFile.write("word,WordEXT\n")
     commandsFile.close()
     return 
 
@@ -25,6 +25,8 @@ def listen(command):
     
     # Package output into an Olga Output Object
     output = None
-    if(command=="hello"):
-        output = makeOOO(text="Hello World")
+    if(command=="word"):
+        output = makeOOO(text="Open Microsoft Word")
+        import subprocess
+        subprocess.Popen('C:\\Program Files (x86)\\\Microsoft Office\\root\\Office16\\WINWORD') # This opens up the calculator
     return output

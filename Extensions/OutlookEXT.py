@@ -3,10 +3,10 @@ from sys import path
 def install():
     # Adds the extensions commands to the command file
     import consts
-    print("Installing HelloEXT")
+    print("Installing OutlookEXT")
     print(consts.COMMANDS_FILE)
     commandsFile = open(consts.COMMANDS_FILE, "a")
-    commandsFile.write("hello,HelloEXT\n")
+    commandsFile.write("outlook,OutlookEXT\n")
     commandsFile.close()
     return 
 
@@ -25,6 +25,8 @@ def listen(command):
     
     # Package output into an Olga Output Object
     output = None
-    if(command=="hello"):
-        output = makeOOO(text="Hello World")
+    if(command=="outlook"):
+        output = makeOOO(text="Open Microsoft Outlook")
+        import subprocess
+        subprocess.Popen('C:\\Program Files (x86)\\Microsoft Office\\root\\Office16\\Outlook.exe') # This opens up the calculator
     return output
